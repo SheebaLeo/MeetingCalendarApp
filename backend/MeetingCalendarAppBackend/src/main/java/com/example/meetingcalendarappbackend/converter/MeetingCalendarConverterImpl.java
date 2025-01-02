@@ -18,7 +18,7 @@ public class MeetingCalendarConverterImpl implements MeetingCalendarConverter {
                 .date(entity.getDate())
                 .time(entity.getTime())
                 .level(entity.getLevel())
-                .participantsEmail(entity.getParticipantsEmail())
+                .participants(entity.getParticipants())
                 .build();
     }
 
@@ -31,7 +31,7 @@ public class MeetingCalendarConverterImpl implements MeetingCalendarConverter {
                 .date(dto.getDate())
                 .time(dto.getTime())
                 .level(dto.getLevel())
-                .participantsEmail(dto.getParticipantsEmail())
+                .participants(dto.getParticipants())
                 .build();
     }
 

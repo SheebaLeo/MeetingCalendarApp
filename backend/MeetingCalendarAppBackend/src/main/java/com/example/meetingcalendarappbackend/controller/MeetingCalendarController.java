@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/v1/calendar")
 @RestController
 @Validated
@@ -25,20 +25,20 @@ public class MeetingCalendarController {
         this.meetingCalendarService = meetingCalendarService;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<MeetingCalendarDTO> doCreateMeeting(@RequestBody @Valid MeetingCalendarDTO meetingCalendarDTO) {
+    @PostMapping
+    public ResponseEntity<MeetingCalendarDTO> doCreateMeeting(@RequestBody MeetingCalendarDTO meetingCalendarDTO) {
 
         MeetingCalendarDTO responseBody = meetingCalendarService.createAdvertisement(meetingCalendarDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseBody);
     }
 
-    @GetMapping("/getMeeting")
+    @GetMapping("/getMeetings")
     public ResponseEntity<List<MeetingCalendarDTO>> getMeetingCalendar() {
         List<MeetingCalendarDTO> responseBody = meetingCalendarService.getMeetingCalendar();
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 
-    @PutMapping("/updateMeeting{meetingId}")
+    @PutMapping("/updateMeeting/{meetingId}")
     public ResponseEntity<MeetingCalendarDTO> updateMeeting(@PathVariable Long meetingId, @RequestBody @Valid MeetingCalendarDTO meetingCalendarDTO) {
         MeetingCalendarDTO responseBody = meetingCalendarService.updateMeeting(meetingCalendarDTO);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);

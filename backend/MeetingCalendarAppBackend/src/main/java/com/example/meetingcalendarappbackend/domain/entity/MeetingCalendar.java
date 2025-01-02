@@ -24,19 +24,17 @@ public class MeetingCalendar{
     @Column(name="_title", nullable= false)
     private String title;
 
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "_date")
-    private LocalDateTime date;
+    private String date;
 
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "_time")
-    private LocalDateTime time;
+    private String time;
 
     @Column(name= "level")
     private String level;
 
     @Column(name="_participants_Email", nullable = false)
-    private String participantsEmail;
+    private String participants;
 
     @Column(name="_description")
     private String description;
